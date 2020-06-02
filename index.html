@@ -14,7 +14,7 @@
         vPosition = position + getPosition(position);
         vec4 mvPosition = modelViewMatrix * vec4(vPosition, 1.0);
         // Размер точки
-        gl_PointSize = 2000. / -mvPosition.z;
+        gl_PointSize = 1000. / -mvPosition.z;
         gl_Position = projectionMatrix * mvPosition;
 
         vLightPosition = (vec4(vPosition - vec3(0., 3., 3.), 1.0) * modelViewMatrix).xyz;
@@ -224,7 +224,7 @@
             const positions = new Float32Array(this.data.amount * 3);
             for (let i = 0, offset = 0, amount = this.data.amount; i < amount; i++, offset = i * 3) {
                 // Начальная позиция точки
-                positions[offset] = .5*(i % this.data.amount) - 15.;
+                positions[offset] = .3 * (i % this.data.amount) - 15.;
                 positions[offset + 1] = 2;
                 positions[offset + 2] = 0;
             }
